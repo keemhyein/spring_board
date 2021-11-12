@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.bbs.mapper.UserMapper">
+	
+	<select id="userList" resultType="com.bbs.model.UserDTO">
+		select * from user order by uno desc
+	</select>
+	
+	<select id="userInfo" resultType="com.bbs.model.UserDTO">
+		select * from user where uno = #{uno}
+	</select>
+	
+	<insert id="insert">
+		insert
+		  into user(uname, utel, uaddress, uage, ugender)
+		values (#{uname}, #{utel}, #{uaddress}, #{uage}, #{ugender})
+	</insert>
+	
+	<delete id="delete">
+		delete from user where uno = #{uno}
+	</delete>
+
+	<update id="update">
+		update user 
+		   set uname = #{uname}, utel = #{utel}, uage = #{uage}, uaddress = #{uaddress}, ugender = #{ugender}
+		 where uno = #{uno}
+	</update>
+
+</mapper>
